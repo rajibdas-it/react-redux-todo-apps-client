@@ -3,7 +3,8 @@ import { useDispatch } from "react-redux";
 import doubleTick from "../assets/images/double-tick.png";
 import notedImg from "../assets/images/notes.png";
 import plusImg from "../assets/images/plus.png";
-import { added, allCompleted, clearCompleted } from "../redux/todos/actions";
+import { allCompleted, clearCompleted } from "../redux/todos/actions";
+import addTodo from "../redux/todos/thunk/addTodo";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -12,7 +13,7 @@ const Header = () => {
     e.preventDefault();
     const form = e.target;
     const todoText = form.title.value;
-    dispatch(added(todoText));
+    dispatch(addTodo(todoText));
     form.reset("");
   };
 
